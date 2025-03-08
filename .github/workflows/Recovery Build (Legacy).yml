@@ -1,4 +1,4 @@
-name: Recovery Build
+name: Recovery Build Fbe
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/Paksan11/twrp_device_samsung_a03s.git'
+        default: 'https://github.com/Paksan11/twrp_device_samsung_a037f.git'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
@@ -22,7 +22,7 @@ on:
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
-        default: 'device/samsung/a03s'
+        default: 'device/samsung/a037f'
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: false
@@ -117,7 +117,7 @@ jobs:
     - name: Clone device tree
       run: |
         git clone ${{ github.event.inputs.DEVICE_TREE_URL }} -b ${{ github.event.inputs.DEVICE_TREE_BRANCH }} ./${{ github.event.inputs.DEVICE_PATH }} 
-        chmod +x device/samsung/a03s/mkbootimg
+        chmod +x device/samsung/a037f/mkbootimg
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Clone common tree
